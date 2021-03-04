@@ -241,7 +241,7 @@ class UnitOfWork implements PropertyChangedListener
      * @param mixed  $oldValue     The old value of the property.
      * @param mixed  $newValue     The new value of the property.
      */
-    public function propertyChanged(object $object, string $propertyName, $oldValue, $newValue) : void
+    public function propertyChanged($object, $propertyName, $oldValue, $newValue) : void
     {
         if (! $this->isInIdentityMap($object)) {
             return;

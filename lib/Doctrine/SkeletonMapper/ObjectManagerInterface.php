@@ -26,7 +26,7 @@ interface ObjectManagerInterface extends BaseObjectManagerInterface
     /**
      * @return ObjectRepositoryInterface
      */
-    public function getRepository(string $className) : BaseObjectRepository;
+    public function getRepository($className) : BaseObjectRepository;
 
-    public function getClassMetadata(string $className) : ClassMetadata;
+    public function getClassMetadata($className) : ClassMetadata;
 }

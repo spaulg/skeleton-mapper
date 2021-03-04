@@ -35,7 +35,7 @@ class ClassMetadataFactory implements BaseClassMetadataFactory
     /**
      * {@inheritDoc}
      */
-    public function getMetadataFor(string $className) : BaseClassMetadata
+    public function getMetadataFor($className) : BaseClassMetadata
     {
         if (! isset($this->classes[$className])) {
             $metadata = $this->classMetadataInstantiator->instantiate($className);
@@ -53,7 +53,7 @@ class ClassMetadataFactory implements BaseClassMetadataFactory
     /**
      * {@inheritDoc}
      */
-    public function hasMetadataFor(string $className) : bool
+    public function hasMetadataFor($className) : bool
     {
         return isset($this->classes[$className]);
     }
@@ -61,7 +61,7 @@ class ClassMetadataFactory implements BaseClassMetadataFactory
     /**
      * {@inheritDoc}
      */
-    public function setMetadataFor(string $className, BaseClassMetadata $class) : void
+    public function setMetadataFor($className, $class) : void
     {
         $this->classes[$className] = $class;
     }
@@ -69,7 +69,7 @@ class ClassMetadataFactory implements BaseClassMetadataFactory
     /**
      * {@inheritDoc}
      */
-    public function isTransient(string $className) : bool
+    public function isTransient($className) : bool
     {
         return isset($this->classes[$className]);
     }

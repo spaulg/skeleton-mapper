@@ -110,7 +110,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function isIdentifier(string $fieldName) : bool
+    public function isIdentifier($fieldName) : bool
     {
         return in_array($fieldName, $this->getIdentifierFieldNames(), true);
     }
@@ -118,7 +118,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function hasField(string $fieldName) : bool
+    public function hasField($fieldName) : bool
     {
         return isset($this->fieldMappings[$fieldName]);
     }
@@ -150,7 +150,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function getTypeOfField(string $fieldName) : string
+    public function getTypeOfField($fieldName) : string
     {
         if (! isset($this->fieldMappings[$fieldName])) {
             throw new InvalidArgumentException(
@@ -164,21 +164,21 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function getAssociationTargetClass(string $associationName) : string
+    public function getAssociationTargetClass($assocName) : string
     {
-        if (! isset($this->associationMappings[$associationName])) {
+        if (! isset($this->associationMappings[$assocName])) {
             throw new InvalidArgumentException(
-                sprintf("Association name expected, '%s' is not an association.", $associationName)
+                sprintf("Association name expected, '%s' is not an association.", $assocName)
             );
         }
 
-        return $this->associationMappings[$associationName]['targetObject'];
+        return $this->associationMappings[$assocName]['targetObject'];
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getIdentifierValues(object $object) : array
+    public function getIdentifierValues($object) : array
     {
         $identifier = [];
         foreach ($this->identifierFieldNames as $identifierFieldName) {
@@ -188,7 +188,7 @@ class ClassMetadata implements ClassMetadataInterface
         return $identifier;
     }
 
-    public function hasAssociation(string $fieldName) : bool
+    public function hasAssociation($fieldName) : bool
     {
         return isset($this->associationMappings[$fieldName]);
     }
@@ -196,7 +196,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function isSingleValuedAssociation(string $fieldName) : bool
+    public function isSingleValuedAssociation($fieldName) : bool
     {
         return isset($this->associationMappings[$fieldName]['type']) &&
             $this->associationMappings[$fieldName]['type'] === 'one';
@@ -205,7 +205,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function isCollectionValuedAssociation(string $fieldName) : bool
+    public function isCollectionValuedAssociation($fieldName) : bool
     {
         return isset($this->associationMappings[$fieldName]['type']) &&
             $this->associationMappings[$fieldName]['type'] === 'many';
@@ -289,7 +289,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function getAssociationMappedByTargetField(string $fieldName) : string
+    public function getAssociationMappedByTargetField($fieldName) : string
     {
         throw new BadMethodCallException(__METHOD__ . '() is not implemented yet.');
     }
@@ -297,7 +297,7 @@ class ClassMetadata implements ClassMetadataInterface
     /**
      * {@inheritDoc}
      */
-    public function isAssociationInverseSide(string $fieldName) : bool
+    public function isAssociationInverseSide($fieldName) : bool
     {
         throw new BadMethodCallException(__METHOD__ . '() is not implemented yet.');
     }

@@ -9,18 +9,18 @@
         { "name": "Jonathan H. Wage", "email": "jonwage@gmail.com" }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.2 || ^8.0",
         "doctrine/collections": "^1.6",
-        "doctrine/instantiator": "^1.1",
-        "doctrine/persistence": "2.0.x-dev"
+        "doctrine/instantiator": "^1.4",
+        "doctrine/persistence": "2.1"
     },
     "require-dev": {
-        "doctrine/coding-standard": "^6.0",
-        "phpstan/phpstan": "^0.10",
-        "phpstan/phpstan-deprecation-rules": "^0.10",
-        "phpstan/phpstan-phpunit": "^0.10",
-        "phpstan/phpstan-strict-rules": "^0.10",
-        "phpunit/phpunit": "~8.0"
+        "doctrine/coding-standard": "^8.2",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-deprecation-rules": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12",
+        "phpstan/phpstan-strict-rules": "^0.12",
+        "phpunit/phpunit": "~9.5"
     },
     "config": {
         "sort-packages": true

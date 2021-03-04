@@ -100,16 +100,17 @@ abstract class ObjectRepository implements ObjectRepositoryInterface
     }
 
     /**
-     * @param array<string, mixed>  $criteria
-     * @param array<string, string> $orderBy
-     *
+     * @param array<string, mixed> $criteria
+     * @param array|null $orderBy
+     * @param null $limit
+     * @param null $offset
      * @return array<int, object> The objects.
      */
     public function findBy(
         array $criteria,
         ?array $orderBy = null,
-        ?int $limit = null,
-        ?int $offset = null
+        $limit = null,
+        $offset = null
     ) : array {
         $objectsData = $this->objectDataRepository->findBy(
             $criteria,

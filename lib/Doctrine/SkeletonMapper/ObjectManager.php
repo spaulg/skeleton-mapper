@@ -64,7 +64,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * @param mixed $id
      */
-    public function find(string $className, $id) : ?object
+    public function find($className, $id) : ?object
     {
         return $this->getRepository($className)->find($id);
     }
@@ -72,7 +72,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function persist(object $object) : void
+    public function persist($object) : void
     {
         $this->unitOfWork->persist($object);
     }
@@ -92,7 +92,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function remove(object $object) : void
+    public function remove($object) : void
     {
         $this->unitOfWork->remove($object);
     }
@@ -100,7 +100,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function merge(object $object) : object
+    public function merge($object) : object
     {
         return $this->unitOfWork->merge($object);
     }
@@ -108,7 +108,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function clear(?string $objectName = null) : void
+    public function clear($objectName = null) : void
     {
         $this->unitOfWork->clear($objectName);
     }
@@ -116,7 +116,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function detach(object $object) : void
+    public function detach($object) : void
     {
         $this->unitOfWork->detach($object);
     }
@@ -124,7 +124,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * {@inheritDoc}
      */
-    public function refresh(object $object) : void
+    public function refresh($object) : void
     {
         $this->unitOfWork->refresh($object);
     }
@@ -137,12 +137,12 @@ class ObjectManager implements ObjectManagerInterface
         $this->unitOfWork->commit();
     }
 
-    public function getRepository(string $className) : ObjectRepository
+    public function getRepository($className) : ObjectRepository
     {
         return $this->objectRepositoryFactory->getRepository($className);
     }
 
-    public function getClassMetadata(string $className) : ClassMetadata
+    public function getClassMetadata($className) : ClassMetadata
     {
         return $this->metadataFactory->getMetadataFor($className);
     }
@@ -160,7 +160,7 @@ class ObjectManager implements ObjectManagerInterface
      *
      * This method is a no-op for other objects.
      */
-    public function initializeObject(object $object) : void
+    public function initializeObject($object) : void
     {
         throw new BadMethodCallException('Not supported.');
     }
@@ -168,7 +168,7 @@ class ObjectManager implements ObjectManagerInterface
     /**
      * Checks if the object is part of the current UnitOfWork and therefore managed.
      */
-    public function contains(object $object) : bool
+    public function contains($object) : bool
     {
         return $this->unitOfWork->contains($object);
     }
